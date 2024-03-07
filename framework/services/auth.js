@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { setupCache, buildMemoryStorage } from "axios-cache-interceptor";
 import axios from "axios";
 
@@ -11,15 +12,13 @@ import axios from "axios";
 // });
 
 export function authHeader() {
+  // eslint-disable-next-line no-undef
   let token = JSON.parse(window.localStorage.getItem("access_token_default"));
 
   if (token !== null && token !== "" && token !== undefined) {
     return {
       "Content-Type": "application/json",
-      Authorization: "localStorage && localStorage.getItem('access_token')
-      ? 'Bearer ' + localStorage.getItem('access_token')
-      : null,
-      'Content-Type': 'application/json',
+      Authorization: "localStorage.getItem('access_token')",
     };
   } else {
     return {

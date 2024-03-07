@@ -35,6 +35,7 @@ describe("getTotal function", () => {
     },
   ];
 
+  // eslint-disable-next-line jest/no-done-callback
   test.skip(data)('should trow error if discount !== "number"', ({ data }) => {
     if (typeof discount !== "number") {
       expect(() => {
