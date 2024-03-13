@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test:ci": "cross-env CI=true NODE_OPTIONS=\"--max-old-space-size=2048\" jest",
     "test:dotenv": "jest --setupFiles dotenv/config --verbose",
     "lint": "eslint . --ignore-path .gitignore --cache",
     "lint:fix": "npm run lint -- --fix",
@@ -16,15 +17,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OTUS-QA-JS/qajs-2022-11.git"
+    "url": ""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/OTUS-QA-JS/qajs-2022-11/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/OTUS-QA-JS/qajs-2022-11#readme",
+  "homepage": "",
   "devDependencies": {
     "@babel/core": "^7.23.0",
     "@babel/preset-env": "^7.22.20",

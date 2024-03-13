@@ -193,6 +193,9 @@ const config = {
 
   // Whether to use watchman for file crawling
   // watchman: true,
+  testEnvironment: "allure-jest/node",
+  setupFiles: ["dotenv/config"],
+  verbose: true,
 };
 
 module.exports = config;

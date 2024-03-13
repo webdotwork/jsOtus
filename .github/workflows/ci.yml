@@ -5,7 +5,6 @@ on: [push, pull_request]
 jobs:
   eslint:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -13,11 +12,10 @@ jobs:
           node-version: 20.11.0
           cache: "npm"
       - run: npm ci
-      - run: npm run lint
+      - run: npm run lint:fix
 
   prettier:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -25,4 +23,40 @@ jobs:
           node-version: 20.11.0
           cache: "npm"
       - run: npm ci
-      - run: npm run format
+      - run: npm run format:fix
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.11.0
+          cache: 'npm'
+      - run: npm ci
+      - run: cp .env.example .env
+      - run: npm test
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag auto:$(date +%s)
+
+      
+  # container-test-job:
+  #   runs-on: ubuntu-latest
+  #   container:
+  #     image: node:18
+  #     env:
+  #       NODE_ENV: development
+  #     ports:
+  #       - 80
+  #     volumes:
+  #       - my_docker_volume:/volume_mount
+  #     options: --cpus 1
+  #   steps:
+  #     - name: Check for dockerenv file
+  #       run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
+        
