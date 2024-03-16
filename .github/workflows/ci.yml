@@ -34,7 +34,7 @@ jobs:
           node-version: 20.11.0
           cache: 'npm'
       - run: npm ci
-      - run: cp .env .env
+      - run: cp .env.example .env
       - run: npm test
 
   # docker:
