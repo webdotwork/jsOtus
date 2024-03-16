@@ -1,0 +1,2 @@
+{"ok":true,"result":[{"update_id":2101425,
+"message":{"message_id":2,"from":{"id":891561140,"is_bot":false,"first_name":"Roland","last_name":"Reagan","username":"RolandReagan"},"chat":{"id":-1002066264187,"title":"Roland and otuQA","type":"supergroup"},"date":1710592890,"text":"@aqotusbot","entities":[{"offset":0,"length":10,"type":"mention"}]}}]}
