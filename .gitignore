@@ -2,6 +2,6 @@ node_modules
 coverage
 .idea
 .eslintcache
-.env
+!.env
 allure-results
 allure-report
