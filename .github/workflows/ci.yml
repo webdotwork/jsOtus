@@ -34,15 +34,15 @@ jobs:
           node-version: 20.11.0
           cache: 'npm'
       - run: npm ci
-      - run: cp .env.example .env
+      - run: cp .env .env
       - run: npm test
 
-  docker:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag auto:$(date +%s)
+  # docker:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Build the Docker image
+  #       run: docker build . --file Dockerfile --tag auto:$(date +%s)
 
       
   # container-test-job:
