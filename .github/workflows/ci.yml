@@ -62,7 +62,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'allure-report'
+          path: 'jest_html_reporters.html'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
@@ -81,8 +81,8 @@ jobs:
           curl --request POST \
           --url https://api.telegram.org/bot7111796883:AAETIeg0IUblR_EuBOrIBok1NIEjhEgoJNk/sendMessage \
           --header 'Content-Type: application/json' \
-          --data '{"chat_id": "-1002066264187", "text": "Your message"}'
-          
+          --data '{"chat_id": "-1002066264187", "text": "Report link: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" }'
+
   # docker:
   #   runs-on: ubuntu-latest
   #   steps:
