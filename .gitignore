@@ -2,6 +2,9 @@ node_modules
 coverage
 .idea
 .eslintcache
-!.env
+.env
 allure-results
 allure-report
+jest-html-reporters-attach
+results
+jest_html_reporters.html

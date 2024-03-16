@@ -32,7 +32,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20.11.0
-          cache: 'npm'
+          cache: "npm"
       - run: npm ci
       - run: cp .env.example .env
       - run: npm test
@@ -44,7 +44,6 @@ jobs:
   #     - name: Build the Docker image
   #       run: docker build . --file Dockerfile --tag auto:$(date +%s)
 
-      
   # container-test-job:
   #   runs-on: ubuntu-latest
   #   container:
@@ -59,4 +58,3 @@ jobs:
   #   steps:
   #     - name: Check for dockerenv file
   #       run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
-        

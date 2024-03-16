@@ -38,8 +38,8 @@ npm install --save-dev allure-jest
 
 ```js
 const config = {
-  testEnvironment: 'allure-jest/node',
-}
+  testEnvironment: "allure-jest/node",
+};
 ```
 
 В `.gitignore` нужно добавить папки
