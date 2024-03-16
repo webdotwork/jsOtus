@@ -79,11 +79,10 @@ jobs:
     steps:
       - run: |
           curl --request POST \
-                --url https://api.telegram.org/bot${{secrets.TEST_TELEGRAM_TOKEN}}/sendMessage \
-                --header 'Content-Type: application/json' \
-                --data '{ "chat_id": "${{secrets.TEST_TELEGRAM_CHAT_ID}}", "text": "Report link: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" }'
-
-
+          --url https://api.telegram.org/bot7111796883:AAETIeg0IUblR_EuBOrIBok1NIEjhEgoJNk/sendMessage \
+          --header 'Content-Type: application/json' \
+          --data '{"chat_id": "-1002066264187", "text": "Your message"}'
+          
   # docker:
   #   runs-on: ubuntu-latest
   #   steps:
@@ -105,3 +104,8 @@ jobs:
   #   steps:
   #     - name: Check for dockerenv file
   #       run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
+  # curl --request POST \
+  # --url https://api.telegram.org/bot${{secrets.TEST_TELEGRAM_TOKEN}}/sendMessage \
+  # --header 'Content-Type: application/json' \
+  # --data '{ "chat_id": "${{secrets.TEST_TELEGRAM_CHAT_ID}}", "text": "Report link: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" }'
+
