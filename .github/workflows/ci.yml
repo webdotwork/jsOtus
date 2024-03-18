@@ -57,17 +57,27 @@ jobs:
       - run: cp .env.example .env
       - run: npm run test || true
       # - run: npm run allure:ci
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+        env:
+          CI: true
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
-          # path: 'jest_html_reporters.html'
-          name: jest_html_reporters  # Name of the artifact
-          path: jest_html_reporters.html 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          name: jest_html_reporters
+          path: jest_html_reporters.html
+
+      # - name: Setup Pages
+      #   uses: actions/configure-pages@v4
+
+      # - name: Upload artifact
+      #   uses: actions/upload-pages-artifact@v3
+      #   with:
+      #     # path: 'jest_html_reporters.html'
+      #     name: jest_html_reporters  # Name of the artifact
+      #     path: jest_html_reporters.html
+
+      # - name: Deploy to GitHub Pages
+      #   id: deployment
+      #   uses: actions/deploy-pages@v4
 
   notification:
     if: always()
