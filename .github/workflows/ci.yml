@@ -41,6 +41,7 @@ jobs:
       - run: npm run format:fix
 
   test:
+    needs: [eslint, prettier]
     # environment:
     #   name: github-pages
     #   url: ${{ steps.deployment.outputs.page_url }}
@@ -56,7 +57,6 @@ jobs:
       - run: npm ci
       - run: cp .env.example .env
       - run: npm run test || true
-      # - run: npm run allure:ci
         env:
           CI: true
       - name: Upload artifact
@@ -65,19 +65,29 @@ jobs:
           name: jest_html_reporters
           path: jest_html_reporters.html
 
-      # - name: Setup Pages
-      #   uses: actions/configure-pages@v4
+  pages:
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
-      # - name: Upload artifact
-      #   uses: actions/upload-pages-artifact@v3
+      # - name: Download artifact
+      #   uses: actions/download-artifact@v2
       #   with:
-      #     # path: 'jest_html_reporters.html'
-      #     name: jest_html_reporters  # Name of the artifact
+      #     name: jest_html_reporters
       #     path: jest_html_reporters.html
 
-      # - name: Deploy to GitHub Pages
-      #   id: deployment
-      #   uses: actions/deploy-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # path: 'jest_html_reporters.html'
+          name: jest_html_reporters  # Name of the artifact
+          path: jest_html_reporters.html
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
   notification:
     if: always()
