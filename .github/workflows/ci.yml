@@ -89,8 +89,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          name: jest_html_reporters
-          path: jest_html_reporters.html
+          artifact_name: jest_html_reporters
 
   notification:
     if: always()
