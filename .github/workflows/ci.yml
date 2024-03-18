@@ -106,7 +106,7 @@ jobs:
           curl --request POST \
           --url https://api.telegram.org/bot7111796883:AAETIeg0IUblR_EuBOrIBok1NIEjhEgoJNk/sendMessage \
           --header 'Content-Type: application/json' \
-          --data '{"chat_id": "-1002066264187", "text": "Report link: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }} Pages link: https://webdotwork.github.io/jsOtus/" \
+          --data '{"chat_id": "-1002066264187", "text": "Pages link: https://webdotwork.github.io/jsOtus/ Report link: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
           --data-binary @jest_html_reporters.html'  # Pass the artifact to curl using command substitution
         
 
