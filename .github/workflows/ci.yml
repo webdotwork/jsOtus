@@ -1,5 +1,8 @@
 name: CI
 
+# defaults:
+#   run:
+#    working-directory: ./nodejs-app
 on: 
   push:
   # Allows you to run this workflow manually from the Actions tab
@@ -73,8 +76,17 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           # name: index.html
-          path: 'results/jest-stare/'
-      
+          path: 'results/jest-stare/index.html'
+
+      - name: prepare the staging env
+        run: mkdir test-results && cp results/jest-stare/index.html test-results
+
+
+      - uses: actions/upload-artifact@v3
+        if: success() || failure() 
+        with:
+          name: index.html
+          path: ./test-results
       # - run: ls -la
       # - run: cat jest_html_reporters.html
       
