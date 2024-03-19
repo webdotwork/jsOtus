@@ -69,11 +69,11 @@ jobs:
         env:
           CI: true
           
-      # - name: Upload artifact
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: index.html
-      #     path: jest_html_reporters.html
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: index.html
+          path: jest_html_reporters.html
       
       # - run: ls -la
       # - run: cat jest_html_reporters.html
