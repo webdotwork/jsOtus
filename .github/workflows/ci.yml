@@ -64,32 +64,40 @@ jobs:
         with:
           name: index.html
           path: jest_html_reporters.html
-
-  pages:
-    runs-on: ubuntu-latest
-    needs: [test]
-    steps:
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Download artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: index.html
-          path: jest_html_reporters.html
-
+      - run: ls -la
+      - run: cat jest_html_reporters.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # path: 'jest_html_reporters.html'
-          name: index.html  # Name of the artifact
-          path: jest_html_reporters.html
+          # name: index.html  # Name of the artifact
+          path: .
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-        with:
-          artifact_name: index.html
+  # pages:
+  #   runs-on: ubuntu-latest
+  #   needs: [test]
+  #   steps:
+  #     - name: Setup Pages
+  #       uses: actions/configure-pages@v4
+
+  #     - name: Download artifact
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: index.html
+  #         path: jest_html_reporters.html
+
+  #     - name: Upload artifact
+  #       uses: actions/upload-pages-artifact@v3
+  #       with:
+  #         # path: 'jest_html_reporters.html'
+  #         name: index.html  # Name of the artifact
+  #         path: jest_html_reporters.html
+
+  #     - name: Deploy to GitHub Pages
+  #       id: deployment
+  #       uses: actions/deploy-pages@v4
+  #       with:
+  #         artifact_name: index.html
 
   notification:
     if: always()
