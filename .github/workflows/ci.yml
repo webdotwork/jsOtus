@@ -81,12 +81,13 @@ jobs:
       - name: prepare the staging env
         run: mkdir test-results && cp results/jest-stare/index.html test-results
 
+      - run: ls -la
 
       - uses: actions/upload-artifact@v3
         if: success() || failure() 
         with:
-          name: index.html
-          path: ./test-results
+          # name: index.html
+          path: 'results/jest-stare/index.html'
       # - run: ls -la
       # - run: cat jest_html_reporters.html
       
